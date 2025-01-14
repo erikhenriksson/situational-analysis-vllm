@@ -1,5 +1,8 @@
 from vllm import LLM, SamplingParams
 from huggingface_hub import login
+import os
+
+os.environ["HF_HOME"] = ".hf"
 
 login()
 # Sample prompts.
