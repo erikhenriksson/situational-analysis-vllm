@@ -38,7 +38,7 @@ def run():
         download_dir=".cache",
         dtype="bfloat16",
         gpu_memory_utilization=0.9,
-        max_model_len=128_000,
+        #max_model_len=128_000,
     )
     # Generate texts from the prompts. The output is a list of RequestOutput objects
     # that contain the prompt, generated text, and other information.
