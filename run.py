@@ -26,7 +26,7 @@ sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
 llm = LLM(
     model="meta-llama/Llama-3.3-70B-Instruct",
     tensor_parallel_size=4,
-    disable_multiprocessing=True,
+    disable_frontend_multiprocessing=True,
 )
 # Generate texts from the prompts. The output is a list of RequestOutput objects
 # that contain the prompt, generated text, and other information.
