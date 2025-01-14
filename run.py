@@ -8,11 +8,14 @@ os.environ["HF_HOME"] = ".hf"
 from dotenv import load_dotenv
 
 load_dotenv()
-import os
 
 token = os.getenv("HF_TOKEN")
 
 login(token=token)
+
+
+def format_prompt(system, user):
+    return f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\x0A\x0A{system}<|eot_id|><|start_header_id|>user<|end_header_id|>\x0A\x0A{user}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\x0A\x0A"
 
 
 def run():
@@ -30,6 +33,10 @@ def run():
     llm = LLM(
         model="meta-llama/Llama-3.3-70B-Instruct",
         tensor_parallel_size=4,
+        download_dir=".cache",
+        dtype="bfloat16",
+        gpu_memory_utilization=0.9,
+        max_model_len=128_000,
     )
     # Generate texts from the prompts. The output is a list of RequestOutput objects
     # that contain the prompt, generated text, and other information.
