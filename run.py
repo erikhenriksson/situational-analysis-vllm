@@ -1,5 +1,7 @@
 from vllm import LLM, SamplingParams
+from huggingface_hub import login
 
+login()
 # Sample prompts.
 prompts = [
     "Hello, my name is",
