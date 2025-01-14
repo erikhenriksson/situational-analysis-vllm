@@ -4,7 +4,14 @@ import os
 
 os.environ["HF_HOME"] = ".hf"
 
-login()
+from dotenv import load_dotenv
+
+load_dotenv()
+import os
+
+token = os.getenv("HF_TOKEN")
+
+login(token=token)
 # Sample prompts.
 prompts = [
     "Hello, my name is",
