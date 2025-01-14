@@ -1,5 +1,6 @@
 from vllm import LLM, SamplingParams
 from huggingface_hub import login
+from vllm.engine.arg_utils import EngineArgs
 import os
 
 os.environ["HF_HOME"] = ".hf"
@@ -31,8 +32,8 @@ engine_args = EngineArgs(
 
 # Create an LLM with the engine args
 llm = LLM(engine_args=engine_args)
-# Generate texts from the prompts. The output is a list of RequestOutput objects
-# that contain the prompt, generated text, and other information.
+
+# Generate texts from the prompts.
 outputs = llm.generate(prompts, sampling_params)
 # Print the outputs.
 for output in outputs:
