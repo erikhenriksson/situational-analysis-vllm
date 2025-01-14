@@ -33,7 +33,7 @@ def run():
 
     # Create an LLM.
     llm = LLM(
-        model="meta-llama/Llama-3.3-70B-Instruct",
+        model="microsoft/phi-4",
         tensor_parallel_size=4,
         download_dir=".cache",
         dtype="bfloat16",
