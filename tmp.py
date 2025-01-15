@@ -1,6 +1,6 @@
 from vllm import LLM, SamplingParams  # type: ignore
 
-# from vllm.sampling_params import GuidedDecodingParams  # type: ignore
+from vllm.sampling_params import GuidedDecodingParams  # type: ignore
 import torch  # type: ignore
 from pydantic import BaseModel  # type: ignore
 
@@ -18,14 +18,14 @@ def LLM_setup(model, cache_dir):
     )
 
 
-def generate(llm, batched_input, response_schema=None):
+def generate(llm, batched_input, response_schema):
 
     sampling_params = SamplingParams(
         temperature=0.0,
         top_p=0.5,
         repetition_penalty=1,
         max_tokens=3000,
-        # d_decoding=response_schema,
+        d_decoding=response_schema,
     )
 
     batched_outputs = llm.generate(
@@ -76,7 +76,7 @@ def main():
     llm = LLM_setup(model, cache_dir)
 
     data = [format_prompt(system, doc) for doc in documents]
-    # json_schema = get_response_format()
+    json_schema = get_response_format()
 
     for _, batch in enumerate(batched(data, 1, 0)):
 
