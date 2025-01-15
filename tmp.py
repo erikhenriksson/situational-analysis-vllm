@@ -18,7 +18,7 @@ def LLM_setup(model, cache_dir):
     )
 
 
-def generate(llm, batched_input, response_schema):
+def generate(llm, batched_input, response_schema=None):
 
     sampling_params = SamplingParams(
         temperature=0.0,
@@ -76,11 +76,11 @@ def main():
     llm = LLM_setup(model, cache_dir)
 
     data = [format_prompt(system, doc) for doc in documents]
-    json_schema = get_response_format()
+    # json_schema = get_response_format()
 
     for _, batch in enumerate(batched(data, 1, 0)):
 
-        batched_outputs = generate(llm, batch, json_schema)
+        batched_outputs = generate(llm, batch)
         print(batched_outputs)
 
 
