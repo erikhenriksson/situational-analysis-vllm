@@ -71,7 +71,7 @@ documents = ["What is the capital of France?", "What is the capital of Paris?"]
 
 def main():
     cache_dir = ".cache"
-    model = "microsoft/phi-4"
+    model = "microsoft/phi-3"
 
     llm = LLM_setup(model, cache_dir)
 
