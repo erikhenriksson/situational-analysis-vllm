@@ -1,5 +1,6 @@
 from vllm import LLM, SamplingParams  # type: ignore
-from vllm.sampling_params import GuidedDecodingParams  # type: ignore
+
+# from vllm.sampling_params import GuidedDecodingParams  # type: ignore
 import torch  # type: ignore
 from pydantic import BaseModel  # type: ignore
 
@@ -24,7 +25,7 @@ def generate(llm, batched_input, response_schema):
         top_p=0.5,
         repetition_penalty=1,
         max_tokens=3000,
-        guided_decoding=response_schema,
+        # d_decoding=response_schema,
     )
 
     batched_outputs = llm.generate(
