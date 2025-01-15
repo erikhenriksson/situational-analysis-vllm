@@ -71,7 +71,7 @@ documents = ["What is the capital of France?", "What is the capital of Paris?"]
 
 def main():
     cache_dir = ".cache"
-    model = "google/gemma-2-9b"
+    model = "Qwen/Qwen2.5-7B-Instruct"
 
     llm = LLM_setup(model, cache_dir)
 
