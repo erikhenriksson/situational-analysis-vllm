@@ -80,7 +80,7 @@ def main():
 
     for _, batch in enumerate(batched(data, 1, 0)):
 
-        batched_outputs = generate(llm, batch)
+        batched_outputs = generate(llm, batch, json_schema)
         print(batched_outputs)
 
 
