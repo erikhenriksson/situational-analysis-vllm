@@ -71,7 +71,7 @@ documents = ["What is the capital of France?", "What is the capital of Paris?"]
 
 def main():
     cache_dir = "/scratch/project_462000642/ehenriks/situational-analysis-vllm/cache"
-    model = "Qwen/Qwen2.5-7B-Instruct"
+    model = "meta-llama/Llama-3.3-70B-Instruct"
 
     llm = LLM_setup(model, cache_dir)
 
