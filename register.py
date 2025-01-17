@@ -129,7 +129,7 @@ Document:
         if response == "0":
             return ClassificationResult(
                 path=["insufficient_text"],
-                main_label="NA",
+                main_label="INSUFFICIENT",
                 sub_label=None,
                 raw_responses=raw_responses,
             )
